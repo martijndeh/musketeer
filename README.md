@@ -1,5 +1,5 @@
 # Musketeer
-[![Build Status](https://travis-ci.org/martijndeh/musketeer.svg?branch=master)](https://travis-ci.org/martijndeh/lego)
+[![Build Status](https://travis-ci.org/martijndeh/musketeer.svg?branch=master)](https://travis-ci.org/martijndeh/musketeer)
 [![Coverage Status](https://coveralls.io/repos/martijndeh/musketeer/badge.svg?branch=master&service=github)](https://coveralls.io/github/martijndeh/musketeer?branch=master)
 
 A/B testing for Node.js.
@@ -71,6 +71,33 @@ await Musketeer.convert('MyFirstTest', userID);
 
 - `experimentName` _String_ The name of the experiment.
 
+Returns an experiment info object. This is useful to report the status of experiments.
+
+This function returns a Promise which resolves the info object.
+
+```js
+const experiment = await Musketeer.info('MyFirstTest');
+
+/*
+{
+	name: 'MyFirstTest',
+	variants: {
+		A: {
+			participants: 100,
+			conversions: 20,
+			conversionRate: 0.2,
+		},
+
+		B: {
+			participants: 100,
+			conversions: 10,
+			conversionRate: 0.1,
+		},
+	},
+}
+*/
+```
+
 ### What's next
 
-- Automatically declare a winning variant after a configurable
+- Automatically declare a winning variant after a configurable time/conversion/significance/etc.
