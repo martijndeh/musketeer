@@ -1,0 +1,41 @@
+{
+  "name": "musketeer",
+  "version": "0.2.0",
+  "description": "A/B testing for Node.js.",
+  "main": "./lib/index.js",
+  "scripts": {
+    "build": "babel src -d lib",
+    "coverage": "MUSKETEER_STORAGE_URL=redis://localhost NODE_ENV=test istanbul cover _mocha -- --compilers js:babel-register --require babel-polyfill --recursive ./src/**/*.test.js",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "test": "MUSKETEER_STORAGE_URL=redis://localhost NODE_ENV=test mocha --compilers js:babel-register --require babel-polyfill --reporter spec ./src/**/*.test.js",
+    "release": "standard-version"
+  },
+  "engines": {
+    "node": ">=7.3.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martijndeh/musketeer.git"
+  },
+  "author": "Martijn de Haan",
+  "license": "MIT",
+  "dependencies": {
+    "bayesian-bandit": "^0.10.0",
+    "bluebird": "^3.5.0",
+    "redis": "^2.7.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "eslint": "^3.19.0",
+    "eslint-plugin-node": "^4.2.2",
+    "istanbul": "^1.0.0-alpha.2",
+    "mocha": "^3.2.0",
+    "sinon": "^1.17.7",
+    "standard-version": "^4.0.0"
+  }
+}
