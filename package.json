@@ -31,6 +31,7 @@
     "babel-preset-latest": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "babel-preset-stage-3": "^6.24.1",
+    "coveralls": "^2.13.1",
     "eslint": "^3.19.0",
     "eslint-plugin-node": "^4.2.2",
     "istanbul": "^1.0.0-alpha.2",
